@@ -90,6 +90,7 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.Rememberme,
+                    //definir a propiedade do lockoutOnFailure para true para ativar o lockout
                     lockoutOnFailure: false);
 
                 if (result.Succeeded)

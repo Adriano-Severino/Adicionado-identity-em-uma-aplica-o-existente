@@ -127,4 +127,5 @@ C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp
 C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.0\WebApplication1.csprojAssemblyReference.cache
+C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.0\Razor\Views\Manage\Index.cshtml.g.cs
+C:\Users\Adria\source\repos\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.0\Razor\Views\Manage\_StatusMessage.cshtml.g.cs

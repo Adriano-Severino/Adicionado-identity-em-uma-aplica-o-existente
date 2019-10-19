@@ -37,7 +37,7 @@ namespace WebApplication1.Controllers
 
             if (user == null)
             {
-                throw new ApplicationException($"Não foi possivel carregar o usuário com o ID '{_userManager.GetUserIdAsync(User)}'");
+                throw new ApplicationException($"Não foi possivel carregar o usuário com o ID '{user.Id}'");
             }
 
             var model = new IndexViewModel
@@ -50,6 +50,51 @@ namespace WebApplication1.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(IndexViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                throw new ApplicationException($"Não foi possivel carregar o usuário com o ID '{user.Id}'");
+            }
+
+            var email = user.Email;
+
+            if (email != model.Email)
+            {
+                var setEmailIResult = await _userManager.SetEmailAsync(user, model.Email);
+
+                if (!setEmailIResult.Succeeded)
+                {
+                    throw new ApplicationException($"erro inesperado ao atribuir um email para o usuario com ID '{user.Id}'");
+                }
+            }
+
+            var phoneNumber = user.PhoneNumber;
+
+            if (phoneNumber != model.PhoneNumber)
+            {
+                var setPhoneResult = await _userManager.SetEmailAsync(user, model.Email);
+
+                if (!setPhoneResult.Succeeded)
+                {
+                    throw new ApplicationException($"erro inesperado ao atribuir um telefone para o usuario com ID '{user.Id}'");
+                }
+            }
+
+            StatusMessage = "Seu perfil foi atualizado";
+
+            return RedirectToAction((nameof(Index)));
         }
     }
 
