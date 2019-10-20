@@ -22,7 +22,7 @@ namespace WebApplication1.Models.ManagerViewModel
         [DataType(DataType.Password)]
         [Display(Name = "Confirma nova Senha")]
         [Compare("NewPassword", ErrorMessage = "As senhas devem ser iguais")]
-        public string ConfirmaPassword { get; set; }
+        public string ConfirmPassword { get; set; }
 
         public string StatusMessage { get; set; }
     }

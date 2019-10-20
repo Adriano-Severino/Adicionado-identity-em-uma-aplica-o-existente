@@ -16,7 +16,7 @@ namespace WebApplication1.Models.AccountViewModel
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Lembrar login")]
-        public bool Rememberme { get; set; }
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
 }

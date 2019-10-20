@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "AspNet.Security.OAuth.LinkedIn/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/AspNet.Security.OAuth.LinkedIn.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/AspNet.Security.OAuth.LinkedIn.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -2832,6 +2844,20 @@
     }
   },
   "libraries": {
+    "AspNet.Security.OAuth.LinkedIn/3.0.0": {
+      "sha512": "PY0yVKO1wMHhEtTu/jE3gbAQ24pGm7qsKHKy6cqKpdfDS6QSe2qGjibI6wmCdv9uXX6KrBvkRANMEJ5GpCeV4A==",
+      "type": "package",
+      "path": "aspnet.security.oauth.linkedin/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnet.security.oauth.linkedin.3.0.0.nupkg.sha512",
+        "aspnet.security.oauth.linkedin.nuspec",
+        "lib/netcoreapp3.0/AspNet.Security.OAuth.LinkedIn.dll",
+        "lib/netcoreapp3.0/AspNet.Security.OAuth.LinkedIn.xml",
+        "package-icon.png"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "sha512": "b0R9X7L6zMqNsssKDvhYHuNi5x0s4DyHTeXybIAyGaitKiW1Q5aAGKdV2codHPiePv9yHfC9hAMyScXQ/xXhPw==",
       "type": "package",
@@ -8858,6 +8884,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "AspNet.Security.OAuth.LinkedIn >= 3.0.0",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.0.0",
       "Microsoft.EntityFrameworkCore >= 3.0.0",
@@ -8911,6 +8938,10 @@
     "frameworks": {
       "netcoreapp3.0": {
         "dependencies": {
+          "AspNet.Security.OAuth.LinkedIn": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Microsoft.AspNetCore.Identity": {
             "target": "Package",
             "version": "[2.2.0, )"

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication1.Data;
 using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -37,6 +39,55 @@ namespace WebApplication1
             services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationDataContext>()
                 .AddDefaultTokenProviders();
+
+            //autenticacao externas
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+
+                    facebookOptions.Scope.Add("user_birthday");
+
+                    facebookOptions.ClaimActions.MapJsonKey(ClaimTypes.Locality, "locale");
+
+                    facebookOptions.SaveTokens = true;
+                })
+                .AddGoogle(googleOptions =>
+                {
+                    googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+
+                    googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+
+                    googleOptions.SaveTokens = true;
+                }).
+                AddTwitter(twitterOptions =>
+                {
+                    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+                    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+
+                    twitterOptions.SaveTokens = true;
+
+                    twitterOptions.RetrieveUserDetails = true;
+
+                    twitterOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email", ClaimValueTypes.Email);
+                })
+                .AddMicrosoftAccount(maoptions =>
+                {
+                    maoptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                    maoptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+
+                    maoptions.SaveTokens = true;
+                })
+                .AddLinkedIn(linkedinOptions =>
+                {
+                    linkedinOptions.ClientId = Configuration["Authentication:Linkedin:ClientId"];
+                    linkedinOptions.ClientSecret = Configuration["Authentication:Linkedin:ClientSecret"];
+
+                    linkedinOptions.SaveTokens = true;
+                });
+
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
 
             // configuracao padrao
             //configuracao e projeto da aula do curso  https://app.balta.io/player/1977/modules/2/classes/7

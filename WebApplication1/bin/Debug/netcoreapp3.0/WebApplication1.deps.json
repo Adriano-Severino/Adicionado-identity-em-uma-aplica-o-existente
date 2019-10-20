@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.0": {
       "WebApplication1/1.0.0": {
         "dependencies": {
+          "AspNet.Security.OAuth.LinkedIn": "3.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.0.0",
           "Microsoft.EntityFrameworkCore": "3.0.0",
@@ -319,6 +320,17 @@
         },
         "compile": {
           "WebApplication1.dll": {}
+        }
+      },
+      "AspNet.Security.OAuth.LinkedIn/3.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.0/AspNet.Security.OAuth.LinkedIn.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.51238"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/AspNet.Security.OAuth.LinkedIn.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -3854,6 +3866,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNet.Security.OAuth.LinkedIn/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PY0yVKO1wMHhEtTu/jE3gbAQ24pGm7qsKHKy6cqKpdfDS6QSe2qGjibI6wmCdv9uXX6KrBvkRANMEJ5GpCeV4A==",
+      "path": "aspnet.security.oauth.linkedin/3.0.0",
+      "hashPath": "aspnet.security.oauth.linkedin.3.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
